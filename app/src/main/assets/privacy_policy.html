@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #3498db;
+        }
+
+        .checkbox-label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .checkbox-input {
+            margin-right: 10px;
+        }
+
+        #thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Privacy Policy for MP3 Play App</h1>
+
+    <h2>1. Information Collection</h2>
+    <p>We collect permissions to read and write MP3 files on your device.</p>
+
+    <h2>2. How We Use Your Data</h2>
+    <p>- To allow you to play MP3 songs.</p>
+    <p>- To improve the App and communicate with you.</p>
+
+    <h2>3. Data Sharing</h2>
+    <p>- We do not sell your data.</p>
+    <p>- We may share data with trusted service providers.</p>
+
+    <h2>4. Security</h2>
+    <p>- We take measures to protect your data but cannot guarantee absolute security.</p>
+
+    <h2>5. Your Choices</h2>
+    <p>- You can control App permissions.</p>
+    <p>- You can request data deletion.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>- Our App is not for children under 13.</p>
+
+    <h2>7. Changes to Policy</h2>
+    <p>- We may update the policy.</p>
+
+    <div class="checkbox-label">
+        <input type="checkbox" class="checkbox-input" id="agree-checkbox">
+        <label for="agree-checkbox">I have read and agree to the Privacy Policy</label>
+    </div>
+
+    <button onclick="showThankYou()">Save</button>
+
+    <div id="thank-you-message">
+        <p>Thank you for agreeing to our Privacy Policy!</p>
+    </div>
+</div>
+
+<script>
+        function showThankYou() {
+            const checkbox = document.getElementById("agree-checkbox");
+            const thankYouMessage = document.getElementById("thank-you-message");
+
+            if (checkbox.checked) {
+                thankYouMessage.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
