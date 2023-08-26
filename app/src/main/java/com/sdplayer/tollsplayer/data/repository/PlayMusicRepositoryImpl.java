@@ -26,8 +26,13 @@ public class PlayMusicRepositoryImpl implements PlayMusicRepository {
 
     @Override
     public void clear(){
-        mediaPlayer.stop();
-        mediaPlayer.release();
+        try{
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }catch (Exception e){
+
+        }
+
     }
 
     @Override

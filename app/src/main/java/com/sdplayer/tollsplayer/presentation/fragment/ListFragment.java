@@ -37,6 +37,12 @@ public class ListFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+//        mediaPlayer.clear();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
         mediaPlayer.clear();
     }
 

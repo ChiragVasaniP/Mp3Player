@@ -20,11 +20,17 @@ import com.sdplayer.tollsplayer.R;
 public class SplashActivity extends AppCompatActivity {
 
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    String[] permission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            permission = new String[]{Manifest.permission.READ_MEDIA_AUDIO};
+        }else{
+            permission = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        }
 
         // Check if the WRITE_EXTERNAL_STORAGE permission is granted
         if (isWriteStoragePermissionGranted()) {
@@ -38,14 +44,20 @@ public class SplashActivity extends AppCompatActivity {
 
     // Check if the WRITE_EXTERNAL_STORAGE permission is granted
     private boolean isWriteStoragePermissionGranted() {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_AUDIO)
+                    == PackageManager.PERMISSION_GRANTED;
+        }else{
+            return ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED;
+        }
+
     }
 
     // Request WRITE_EXTERNAL_STORAGE permission
     private void requestWriteStoragePermission() {
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                permission,
                 REQUEST_WRITE_EXTERNAL_STORAGE);
     }
 
