@@ -22,11 +22,12 @@
             android:name=".presentation.activity.PrivacyActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.activity.StartActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.activity.MainActivity"
+            android:exported="false" />
+
         <activity
             android:name=".presentation.activity.SplashActivity"
             android:configChanges="orientation|screenSize"
